@@ -11,10 +11,13 @@ const FormInputs = () => {
     const [running, setRunning] = useState(false)
     const [description, setDescription] = useState('')
     const dispatch = useAppDispatch()
+    const currentDate = new Date()
+    const formattedDate = `${currentDate.getMonth() + 1}/${currentDate.getDate()}/${currentDate.getFullYear()}`
 
     function sendData() {
         const newData = {
             description,
+            formattedDate,
             time:
                 ('0' + Math.floor((time / 60000) % 60)).slice(-2) +
                 ':' +

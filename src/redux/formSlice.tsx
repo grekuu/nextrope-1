@@ -3,7 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import type { RootState } from './store'
 
 interface FormState {
-    data: Array<{ description: string; time: string }>
+    data: Array<{ description: string; time: string; formattedDate: string }>
 }
 
 const initialState: FormState = {
@@ -14,7 +14,7 @@ export const formSlice = createSlice({
     name: 'form',
     initialState,
     reducers: {
-        addData: (state, action: PayloadAction<{ description: string; time: string }>) => {
+        addData: (state, action: PayloadAction<{ description: string; time: string; formattedDate: string }>) => {
             state.data.push(action.payload)
         },
     },
